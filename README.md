@@ -40,7 +40,7 @@ sh run.sh
 
 #### Dapatkan item film yang sedang berlangsung
 
-```http
+```
 http://localhost:3180/cineplex/playing
 ```
 
@@ -50,7 +50,7 @@ http://localhost:3180/cineplex/playing
 
 #### Dapatkan item film yang akan datang
 
-```http
+```
 http://localhost:3180/cineplex/upcoming
 ```
 
@@ -60,7 +60,7 @@ http://localhost:3180/cineplex/upcoming
 
 #### Dapatkan item semua Kota
 
-```http
+```
 http://localhost:3180/cineplex/city
 ```
 
