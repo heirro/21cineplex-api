@@ -67,3 +67,11 @@ http://localhost:3180/cineplex/city
 | Method | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `GET` | `JSON` | Menampilkan semua Kota |
+
+## Demo
+
+- Now Playing: https://api.jadalak.com/cineplex/playing
+
+- City: https://api.jadalak.com/cineplex/city
+
+- Up Coming: https://api.jadalak.com/cineplex/upcoming
