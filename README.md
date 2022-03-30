@@ -19,7 +19,7 @@ Scraping data dari 21cineplex untuk keperluan hobby dan riset, tidak ada hal yan
 
 ## Installasi
 
-```http
+```
 - git clone https://github.com/heirro/21cineplex-api.git
 - cd 21cineplex-api
 - npm install
@@ -28,12 +28,12 @@ Scraping data dari 21cineplex untuk keperluan hobby dan riset, tidak ada hal yan
 ## Menjalankan projek
 
 ### Via NPM
-```http
+```
 npm run start
 ```
 
 ### Via Bash Script
-```http
+```
 sh run.sh
 ```
 ## Referensi API
@@ -41,7 +41,7 @@ sh run.sh
 #### Dapatkan item film yang sedang berlangsung
 
 ```http
-Endpoint: /cineplex/playing
+http://localhost:3180/cineplex/playing
 ```
 
 | Method | Type     | Description                |
@@ -51,7 +51,7 @@ Endpoint: /cineplex/playing
 #### Dapatkan item film yang akan datang
 
 ```http
-Endpoint: /cineplex/upcoming
+http://localhost:3180/cineplex/upcoming
 ```
 
 | Method | Type     | Description                |
@@ -61,7 +61,7 @@ Endpoint: /cineplex/upcoming
 #### Dapatkan item semua Kota
 
 ```http
-Endpoint: /cineplex/city
+http://localhost:3180/cineplex/city
 ```
 
 | Method | Type     | Description                |
