@@ -1,0 +1,27 @@
+{
+  "name": "21cineplex-api",
+  "version": "1.0.0",
+  "description": "Scrape data dari 21cineplex untuk keperluan hobby, tidak ada hal yang berbahaya atau merugikan website sumber.",
+  "main": "index.js",
+  "author": "Vava Heirro",
+  "scripts": {
+    "start": "sh run.sh"
+  },
+  "keywords": [],
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heirro/21cineplex-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heirro/21cineplex-api/issues"
+  },
+  "homepage": "https://github.com/heirro/21cineplex-api#readme"
+}
