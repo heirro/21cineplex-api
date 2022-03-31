@@ -1,5 +1,5 @@
-node city.js
-node playing.js
-node upcoming.js
-node reguler.js
+node component/controllers/city.js
+node component/controllers/playing.js
+node component/controllers/upcoming.js
+node component/controllers/reguler.js
 nodemon --delay 60 index.js

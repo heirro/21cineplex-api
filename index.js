@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const port = 3180;
 
-const city = require("./city.json");
-const now_play = require("./playing.json");
-const theater = require("./reguler.json");
-const upcoming = require("./upcoming.json");
+const city = require("./component/views/city.json");
+const now_play = require("./component/views/playing.json");
+const theater = require("./component/views/reguler.json");
+const upcoming = require("./component/views/upcoming.json");
 
 app.get("/cineplex/city", (req, res) => {
   res.send(city);

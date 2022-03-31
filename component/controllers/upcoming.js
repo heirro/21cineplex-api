@@ -25,7 +25,7 @@ async function scrapeData() {
       //console.log('now_play', now_play);
     });
     fs.writeFile(
-      filename + ".json",
+      `./component/views/${filename}.json`,
       JSON.stringify(now_playing, undefined, 4),
       (err) => {
         if (err) {
