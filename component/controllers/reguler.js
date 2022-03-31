@@ -2,29 +2,24 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-const url = "https://m.21cineplex.com/gui.list_city.php";
+const url = "https://m.21cineplex.com/gui.list_theater.php?sid=&city_id=10";
 const filename = __filename.split(/[\\/]/).pop().replace(".js", "");
 
 async function scrapeData() {
   try {
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
-    const listItems = $("ul.list-group li");
-    const regions = [];
+    const listItems = $("div.all li");
+    const theaters = [];
     listItems.each((idx, el) => {
-      const region = { id: [], cities: [] };
-      region.cities = $(el).children("div").html();
-      region.id = $(el)
-        .children("div")
-        .attr("onclick")
-        .split("'")[1]
-        .replace("gui.list_theater.php?sid=&city_id=", "");
-      regions.push(region);
-      //console.log('region', region);
+      const theater = { reguler: [] };
+      theater.reguler = $(el).children("div").text();
+      theaters.push(theater);
+      //console.log('theater', theater);
     });
     fs.writeFile(
-      filename + ".json",
-      JSON.stringify(regions, undefined, 2),
+      `./component/views/${filename}.json`,
+      JSON.stringify(theaters, undefined, 4),
       (err) => {
         if (err) {
           console.error(err);
@@ -40,5 +35,4 @@ async function scrapeData() {
     console.error(err);
   }
 }
-
 scrapeData();
