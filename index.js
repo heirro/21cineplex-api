@@ -2,28 +2,26 @@ const express = require("express");
 const app = express();
 const port = 3180;
 
-const scrapeCity = require('./component/controllers/city')
-
-// const city = require("./component/views/city.json");
-// const now_play = require("./component/views/playing.json");
-// const theater = require("./component/views/reguler.json");
-// const upcoming = require("./component/views/upcoming.json");
+const scrapeCity = require('./src/city');
+const scrapePlaying = require('./src/playing');
+const scrapeUpcoming = require('./src/upcoming');
 
 app.get("/cineplex/city", async (req, res) => {
-  const cities = await scrapeCity() 
-  res.send({ cities});
+  const city = await scrapeCity();
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({city}, null, 2));
 });
 
-app.get("/cineplex/playing", (req, res) => {
-  res.send(now_play);
+app.get("/cineplex/playing", async (req, res) => {
+  const playing = await scrapePlaying();
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({playing}, null, 2));
 });
 
-app.get("/theater/reguler", (req, res) => {
-  res.send(theater);
-});
-
-app.get("/cineplex/upcoming", (req, res) => {
-    res.send(upcoming);
+app.get("/cineplex/upcoming", async (req, res) => {
+  const upcoming = await scrapeUpcoming();
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({upcoming}, null, 2));
 });
 
 app.listen(port, () => {
