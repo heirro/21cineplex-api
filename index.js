@@ -2,13 +2,16 @@ const express = require("express");
 const app = express();
 const port = 3180;
 
-const city = require("./component/views/city.json");
-const now_play = require("./component/views/playing.json");
-const theater = require("./component/views/reguler.json");
-const upcoming = require("./component/views/upcoming.json");
+const scrapeCity = require('./component/controllers/city')
 
-app.get("/cineplex/city", (req, res) => {
-  res.send(city);
+// const city = require("./component/views/city.json");
+// const now_play = require("./component/views/playing.json");
+// const theater = require("./component/views/reguler.json");
+// const upcoming = require("./component/views/upcoming.json");
+
+app.get("/cineplex/city", async (req, res) => {
+  const cities = await scrapeCity() 
+  res.send({ cities});
 });
 
 app.get("/cineplex/playing", (req, res) => {
