@@ -5,7 +5,8 @@
   "main": "index.js",
   "author": "Vava Heirro",
   "scripts": {
-    "start": "sh run.sh"
+    "start": "sh run.sh",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "license": "GPL-3.0",
