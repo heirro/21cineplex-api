@@ -27,14 +27,14 @@ Scraping data dari 21cineplex untuk keperluan hobby dan riset, tidak ada hal yan
 
 ## Menjalankan projek
 
-### Via NPM
+### Di local
 ```
-npm run start
+npm run dev
 ```
 
-### Via Bash Script
+### Di server
 ```
-sh run.sh
+npm run start
 ```
 ## Referensi API
 
@@ -68,6 +68,29 @@ http://localhost:3180/cineplex/city
 | :-------- | :------- | :------------------------- |
 | `GET` | `JSON` | Menampilkan semua Kota |
 
+#### Dapatkan item Teater berdasarkan Kota
+
+```
+- http://localhost:3180/cineplex/city/{id}
+Ex: http://localhost:3180/cineplex/city/12
+```
+
+| Method | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `GET` | `JSON` | Menampilkan semua item Teater (2D Reguler, IMAX, Premier) berdasarkan Kota, untuk mendapatkan id kota, menggunakan endpoint /cineplex/city |
+
+#### Dapatkan item semua jadwal film di Teater berdasarkan Kota
+
+```
+- http://localhost:3180/cineplex/schedule/{id}
+Ex: http://localhost:3180/cineplex/schedule/SBYCIWO
+```
+
+| Method | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `GET` | `JSON` | Menampilkan semua jadwal Film di Teater berdasarkan Kota, untuk mendapatkan id Teater, menggunakan endpoint /cineplex/city/{id} |
+
+
 ## Demo
 
 - Now Playing: https://api.jadalak.com/cineplex/playing
@@ -75,3 +98,7 @@ http://localhost:3180/cineplex/city
 - City: https://api.jadalak.com/cineplex/city
 
 - Up Coming: https://api.jadalak.com/cineplex/upcoming
+
+- Teater: https://api.jadalak.com/cineplex/city/12
+
+- Schedule: https://api.jadalak.com/cineplex/schedule/SBYCIWO
