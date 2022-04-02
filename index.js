@@ -30,6 +30,7 @@ app.use("/cineplex/city", scrapeTeater);
 
 app.use("/cineplex/schedule", scrapeSchedules);
 
+
 app.listen(port, () => {
   console.log(
     `Jadalak API service [cineplex] listening at http://localhost:${port}/cineplex/`
