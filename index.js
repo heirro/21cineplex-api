@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const port = 3180;
+
+app.use(cors());
 
 const scrapeCity = require('./src/city');
 const scrapePlaying = require('./src/playing');
