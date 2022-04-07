@@ -10,24 +10,24 @@ router.get("/:id", async (req, res) => {
     } = await axios.get(url);
     const $ = cheerio.load(data);
     const listItems = $("div.nav_theater_content div li");
-    const teaters = [];
+    const theaters = [];
     listItems.each((idx, el) => {
       const teater = {
         id: [],
-        place: []
+        name: []
       };
-      teater.place = $(el).children("div").text();
+      teater.name = $(el).children("div").text();
       teater.id = $(el)
         .children("div")
         .attr("onclick")
         .split("'")[1]
         .replace("gui.schedule.php?sid=&find_by=1&cinema_id=", "")
         .replace("&movie_id=", "");
-      teaters.push(teater);
+      theaters.push(teater);
     });
     res.setHeader("Content-Type", "application/json");
     res.send(JSON.stringify({
-      teaters
+      theaters
     }, null, 2));
   } catch (err) {
     console.error(err);

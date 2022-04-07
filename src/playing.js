@@ -13,19 +13,17 @@ async function scrapePlaying() {
     const playings = [];
     listItems.each((idx, el) => {
       const playing = {
-
         id: [],
         movie: [],
         banner: [],
         rating: [],
-        studio: []
+        type: []
       };
       playing.id = $(el).children('a').attr('href').split('movie_id=')[1];
-
       playing.movie = $(el).children(".title").text();
       playing.banner = $(el).children("a").children("img").attr("src");
       playing.rating = $(el).children(".rating").children("a").text();
-      playing.studio = $(el)
+      playing.type = $(el)
         .children(".rating")
         .children("span")
         .text()

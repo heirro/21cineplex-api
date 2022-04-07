@@ -13,15 +13,17 @@ async function scrapeUpcoming() {
     const upcomings = [];
     listItems.each((idx, el) => {
       const upcoming = {
+        id: [],
         movie: [],
         banner: [],
         rating: [],
-        studio: []
+        type: []
       };
+      upcoming.id = $(el).children('a').attr('href').split('movie_id=')[1];
       upcoming.movie = $(el).children(".title").text();
       upcoming.banner = $(el).children("a").children("img").attr("src");
       upcoming.rating = $(el).children(".rating").children("a").text();
-      upcoming.studio = $(el)
+      upcoming.type = $(el)
         .children(".rating")
         .children("span")
         .text()
