@@ -8,8 +8,9 @@ app.use(cors());
 const scrapeCity = require('./src/city');
 const scrapePlaying = require('./src/playing');
 const scrapeUpcoming = require('./src/upcoming');
-const scrapeTeater = require('./src/teater');
+const scrapeTeater = require('./src/theaters');
 const scrapeSchedules = require('./src/schedule');
+const scrapeMovies = require('./src/movies');
 
 app.get("/cineplex/city", async (req, res) => {
   const cities = await scrapeCity();
@@ -29,9 +30,11 @@ app.get("/cineplex/upcoming", async (req, res) => {
   res.send(JSON.stringify({upcoming}, null, 2));
 });
 
-app.use("/cineplex/city", scrapeTeater);
+app.use("/cineplex/theaters", scrapeTeater);
 
 app.use("/cineplex/schedule", scrapeSchedules);
+
+app.use("/cineplex/movies", scrapeMovies);
 
 
 app.listen(port, () => {

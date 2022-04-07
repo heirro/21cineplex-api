@@ -5,16 +5,16 @@ Scraping data dari 21cineplex untuk keperluan hobby dan riset, tidak ada hal yan
 
 ## Software
 ```
-- NodeJS v14.19.0 atau lebih dengan versi stabil.
-- npm v8.1.3 atau lebih
+- NodeJS^14.x.x (stable).
+- npm^8.x.x
 ```
 
 ## Paket software
 ```
-- cheerio^1.0.0-rc.10
-- axios^0.26.1
-- express^4.17.3
-- nodemon^2.0.15
+- cheerio^1.x.x
+- axios^0.26.x
+- express^4.17.x
+- nodemon^2.0.x
 ```
 
 ## Installasi
@@ -27,15 +27,16 @@ Scraping data dari 21cineplex untuk keperluan hobby dan riset, tidak ada hal yan
 
 ## Menjalankan projek
 
-### Di local
+### Development
 ```
 npm run dev
 ```
 
-### Di server
+### Production
 ```
 npm run start
 ```
+
 ## Referensi API
 
 #### Dapatkan item film yang sedang berlangsung
@@ -71,8 +72,7 @@ http://localhost:3180/cineplex/city
 #### Dapatkan item Teater berdasarkan Kota
 
 ```
-- http://localhost:3180/cineplex/city/{id}
-Ex: http://localhost:3180/cineplex/city/12
+- http://localhost:3180/cineplex/theaters/{city_id}
 ```
 
 | Method | Type     | Description                |
@@ -82,13 +82,24 @@ Ex: http://localhost:3180/cineplex/city/12
 #### Dapatkan item semua jadwal film di Teater berdasarkan Kota
 
 ```
-- http://localhost:3180/cineplex/schedule/{id}
-Ex: http://localhost:3180/cineplex/schedule/SBYCIWO
+- http://localhost:3180/cineplex/schedule/{teater_id}
 ```
 
 | Method | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `GET` | `JSON` | Menampilkan semua jadwal Film di Teater berdasarkan Kota, untuk mendapatkan id Teater, menggunakan endpoint /cineplex/city/{id} |
+
+
+#### Dapatkan detail item Film
+
+```
+- http://localhost:3180/cineplex/movies/{movie_id}
+```
+
+| Method | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `GET` | `JSON` | Menampilkan detail Film, untuk mendapatkan movie_id, menggunakan endpoint /cineplex/playing atau /cineplex/upcoming |
+
 
 
 ## Demo
@@ -102,3 +113,5 @@ Ex: http://localhost:3180/cineplex/schedule/SBYCIWO
 - Teater: https://api.jadalak.com/cineplex/city/12
 
 - Schedule: https://api.jadalak.com/cineplex/schedule/SBYCIWO
+
+- Movies: https://api.jadalak.com/cineplex/movies/20MORS
