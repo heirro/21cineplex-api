@@ -27,10 +27,13 @@ router.get("/:id", async (req, res) => {
       schedule.banner = $(el).children('a').children('img').attr('src');
       schedule.teater = $(el).children('span').text().split('R13+')[0].split('SU')[0].split('D17+')[0];
       schedule.rating = $(el).children('span').text().split('2D')[1];
-      schedule.date = $(el).children('div').children('div').children('div').text().split('Rp')[0];
+      schedule.date = $(el).children('div').children('div').children('div').children(".p_date").text();
       schedule.time = $(el).children('div').html().split('<span class="glyphicon glyphicon-time"></span> ')[1];
+      schedule.price = $(el).children('div').children('div').children('div').children(".p_price").text();
+      schedule.schedule = $(el).children('div').children('div').children(".p_time.pull-left").children('a').parent().text().trim().split(' ');
       schedules.push(schedule);
     });
+    
     res.setHeader("Content-Type", "application/json");
     res.send(JSON.stringify({
       schedules
